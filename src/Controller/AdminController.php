@@ -10,11 +10,12 @@ use App\Form\ImageFormType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 class AdminController extends AbstractController
 {
+
     #[Route('/admin/images', name: 'app_images')]
     public function images(ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response
     {
@@ -80,4 +81,6 @@ class AdminController extends AbstractController
                 'imagen' => null
             ]);  
     }
+
+
 }
