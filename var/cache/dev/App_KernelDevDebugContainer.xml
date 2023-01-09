@@ -7013,7 +7013,7 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.jPGPJxn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xilGskN" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::delete" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -7045,6 +7045,7 @@
         <argument key="App\Controller\BlogController::like" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController::newPost" type="service_closure" id=".service_locator.aUsFPsv"/>
         <argument key="App\Controller\BlogController::post" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\PageController::about" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\PageController::contact" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\PageController::index" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.iQAD6w2"/>
@@ -7084,6 +7085,7 @@
         <argument key="App\Controller\BlogController:like" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController:newPost" type="service_closure" id=".service_locator.aUsFPsv"/>
         <argument key="App\Controller\BlogController:post" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\PageController:about" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\PageController:contact" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\PageController:index" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.iQAD6w2"/>
@@ -8013,12 +8015,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.jPGPJxn"/>
+      <argument type="service" id=".service_locator.xilGskN"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.jPGPJxn"/>
+      <argument type="service" id=".service_locator.xilGskN"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8999,7 +9001,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.jPGPJxn"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.xilGskN"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9025,7 +9027,7 @@
     <service id=".service_locator.hNls88j" alias=".service_locator.ENGuM7_"/>
     <service id=".service_locator.6rNHno." alias=".service_locator.riFbGaB"/>
     <service id=".service_locator.x__eXbe" alias=".service_locator.iQAD6w2"/>
-    <service id=".service_locator.lHMKo29" alias=".service_locator.jPGPJxn"/>
+    <service id=".service_locator.U00yAWo" alias=".service_locator.xilGskN"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.uSxA2J3" alias=".service_locator.UkT_aSH"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>

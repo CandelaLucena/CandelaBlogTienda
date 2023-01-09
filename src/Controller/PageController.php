@@ -10,6 +10,7 @@ use App\Entity\Contact;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactFormType;
 use App\Entity\Image;
+use App\Entity\Team;
 
 class PageController extends AbstractController
 {
@@ -23,9 +24,11 @@ class PageController extends AbstractController
     }
 
     #[Route('/about', name: 'about')]
-    public function about(): Response
+    public function about(ManagerRegistry $doctrine): Response
     {
-        return $this->render('page/about.html.twig', []);
+        $repository = $doctrine->getRepository(Team::class);
+        $team = $repository->findAll();
+        return $this->render('page/about.html.twig', array('team' => $team));
     }
 
     #[Route('/contact', name: 'contact')]
