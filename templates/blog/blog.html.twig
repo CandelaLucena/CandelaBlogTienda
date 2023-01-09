@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+{% block title %}Blog{% endblock %}
+{% block body %}
+		<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
+			<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/intro.jpg);">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 float-overlay">
+							<h2>Our Blog</h2>
+							<h3>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="animate-box">
+			<div class="blog_section_2">
+				<div class="row">
+					{% for post in posts.results %}
+								<div class="col-sm-6">
+									<div class="section_1">
+										<div><img src="{{ asset('images/index/gallery/' ~ post.image) }}" style="max-width: 100%; height: 500px;"></div>
+										<a href="{{ path('single_post', {'slug': post.slug}) }}" class="btn"  style="width: 100%;">{{post.title}}</a>
+										<p style="word-break: break-all; text-overflow: ellipsis;">{{post.content}}</p>
+										<p style="text-align: right;">By {{post.postUser.name}} in {{post.publishedAt | date('d') }} {{ post.publishedAt | date('F') }}</p>
+										<div>
+											<a href="{{ path('single_post', {'slug': post.slug}) }}" class="btn"  style="width: 70%">READ MORE...</a>
+											<img src="{{asset('images/comment.png')}}" style="width: 20px;"> {{post.numComments}}
+											<img src="{{asset('images/favorite.png')}}"style="width: 20px;"> {{post.numLikes}}
+										</div>
+									</div>
+								</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+
+
+		<form class="" action='{{ path('blog_buscar') }}'>
+			<input type="text" class="form-control" style="display:unset; width:90%" placeholder="Research" name='searchTerm'>
+			<button type='submit' class="btn btn-primary btn-danger">Buscar<i class="fa fa-search"></i>
+			</button>
+		</form>
+
+		{% if (app.request.attributes.get('_route') == 'blog') %}
+			{% if posts.hasToPaginate %}
+				{% if posts.hasToPaginate %}
+					<div class="text-left">
+						<ul class="pagination">
+							{% if posts.hasPreviousPage %}
+								<li class="prev"><a href="{{ path('blog', {page: posts.previousPage}) }}" rel="previous"><i class="fa fw fa-long-arrow-left"></i> Previous</a></li>
+							{% else %}
+								<li class="prev disabled"><span><i class="fa fw fa-arrow-left"></i> Previous </span></li>
+							{% endif %}
+
+							{% for i in 1..posts.lastPage %}
+								{% if i == posts.currentPage %}
+									<li class="active"><span>{{ i }}</span></li>
+								{% else %}
+									<li><a href="{{ path('blog', {page: i}) }}">{{ i }}</a></li>
+								{% endif %}
+							{% endfor %}
+
+							{% if posts.hasNextPage %}
+								<li class="next"><a href="{{ path('blog', {page: posts.nextPage}) }}" rel="next">Next <i class="fa fw fa-arrow-right"></i></a></li>
+							{% else %}
+								<li class="next disabled"><span>Next <i class="fa fw fa-arrow-right"></i></span></li>
+							{% endif %}
+						</ul>
+					</div>
+				{% endif %}
+			{% endif %}
+		{% else %}
+			{% if posts.hasToPaginate %}
+				<div class="text-left">
+				<ul class="pagination">
+					{% if posts.hasPreviousPage %}
+						<li class="prev"><a href="{{ path('blog_buscar', {page: posts.previousPage}) }}?searchTerm={{searchTerm}}" rel="previous"><i class="fa fw fa-long-arrow-left"></i> Previous</a></li>
+					{% else %}
+						<li class="prev disabled"><span><i class="fa fw fa-arrow-left"></i> Previous </span></li>
+					{% endif %}
+					{% for i in 1..posts.lastPage %}
+						{% if i == posts.currentPage %}
+							<li class="active"><span>{{ i }}</span></li>
+						{% else %}
+							<li><a href="{{ path('blog_buscar', {page: i}) }}?searchTerm={{searchTerm}}">{{ i }}</a></li>
+						{% endif %}
+					{% endfor %}
+					{% if posts.hasNextPage %}
+						<li class="next"><a href="{{ path('blog_buscar', {page: posts.nextPage}) }}?searchTerm={{searchTerm}}" rel="next">Next <i class="fa fw fa-arrow-right"></i></a></li>
+					{% else %}
+						<li class="next disabled"><span>Next <i class="fa fw fa-arrow-right"></i></span></li>
+					{% endif %}
+				</ul>
+				</div>
+			{% endif %}
+		{% endif %}
+{% endblock %}
