@@ -1,11 +1,11 @@
-<div class="row">
-	<div class="col-md-8 col-md-offset-2 float-overlay">
-            <h3>Team Members</h3>
-
-            {% for teamMember in team %}
-                        <img style="width:300;height:400px" src="{{ asset('img/' ~ teamMember.photo) }}" alt="">         
-                        <h5 class="text-uppercase">{{ teamMember.name }}</h5>
-                        <p class="m-0">{{ teamMember.designation }}</p>
-            {% endfor %}
-    </div>
-</div> 
+    {% for teamMember in team %}
+    			
+        <div class="col-sm-4">
+            <div class="section_1">
+                <img class="img-responsive center-block"  style="width:300px;height:400px;" src="{{ asset('img/' ~ teamMember.photo) }}" alt="">         
+                <h5 class="text-uppercase">{{ teamMember.name }}</h5>
+                <p class="m-0">{{ teamMember.designation }}</p>
+            </div>
+        </div>
+        
+    {% endfor %}
