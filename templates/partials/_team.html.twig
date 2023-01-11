@@ -1,11 +1,11 @@
     {% for teamMember in team %}
-    			
-        <div class="col-sm-4">
-            <div class="section_1">
-                <img class="img-responsive center-block"  style="width:300px;height:400px;" src="{{ asset('img/' ~ teamMember.photo) }}" alt="">         
-                <h5 class="text-uppercase">{{ teamMember.name }}</h5>
-                <p class="m-0">{{ teamMember.designation }}</p>
+    	<div class="animate-box">
+            <div class="col-sm-4">
+                <div class="section_1">
+                    <img class="img-responsive center-block"  style="width:300px;height:400px;" src="{{ asset('img/' ~ teamMember.photo) }}" alt="">         
+                    <h5 class="text-uppercase text-center">{{ teamMember.name }}</h5>
+                    <p class="text-center">{{ teamMember.designation }}</p>
+                </div>
             </div>
         </div>
-        
     {% endfor %}

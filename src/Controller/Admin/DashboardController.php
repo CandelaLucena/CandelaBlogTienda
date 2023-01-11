@@ -30,4 +30,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
+
+    #[Route('/admin/product', name: 'admin-product')]
+    public function product(): Response
+    {
+    $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+    
+    return $this->redirect($adminUrlGenerator->setController(ProductCrudController::class)->generateUrl());
+    }
 }
