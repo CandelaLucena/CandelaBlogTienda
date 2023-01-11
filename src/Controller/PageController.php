@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactFormType;
 use App\Entity\Image;
 use App\Entity\Team;
+use App\Entity\Product;
 
 class PageController extends AbstractController
 {
@@ -56,8 +57,10 @@ class PageController extends AbstractController
     }
 
     #[Route('/product', name: 'product')]
-    public function product(): Response
+    public function product(ManagerRegistry $doctrine): Response
     {
-        return $this->render('page/product.html.twig', []);
+        $repository = $doctrine->getRepository(Product::class);
+        $products = $repository->findAll();
+        return $this->render('page/product.html.twig', array('products' => $products));
     }
 }
