@@ -63,4 +63,5 @@ class PageController extends AbstractController
         $products = $repository->findAll();
         return $this->render('page/product.html.twig', array('products' => $products));
     }
+
 }
