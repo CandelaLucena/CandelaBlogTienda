@@ -44,14 +44,17 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/admin/images/([^/]++)(*:191)'
-                .'|/single_post/([^/]++)/like(*:225)'
+                .'|/a(?'
+                    .'|dmin/images/([^/]++)(*:194)'
+                    .'|pi/show/([^/]++)(*:218)'
+                .')'
+                .'|/single_post/([^/]++)/like(*:253)'
                 .'|/blog(?'
                     .'|/(?'
-                        .'|single_post/([^/]++)(*:265)'
-                        .'|buscar(?:/([^/]++))?(*:293)'
+                        .'|single_post/([^/]++)(*:293)'
+                        .'|buscar(?:/([^/]++))?(*:321)'
                     .')'
-                    .'|(?:/([^/]++))?(*:316)'
+                    .'|(?:/([^/]++))?(*:344)'
                 .')'
             .')/?$}sDu',
     ],
@@ -63,11 +66,12 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        191 => [[['_route' => 'app_images_borrar', '_controller' => 'App\\Controller\\AdminController::delete'], ['id'], null, null, false, true, null]],
-        225 => [[['_route' => 'post_like', '_controller' => 'App\\Controller\\BlogController::like'], ['slug'], null, null, false, false, null]],
-        265 => [[['_route' => 'single_post', '_controller' => 'App\\Controller\\BlogController::post'], ['slug'], null, null, false, true, null]],
-        293 => [[['_route' => 'blog_buscar', 'page' => 1, '_controller' => 'App\\Controller\\BlogController::buscar'], ['page'], null, null, false, true, null]],
-        316 => [
+        194 => [[['_route' => 'app_images_borrar', '_controller' => 'App\\Controller\\AdminController::delete'], ['id'], null, null, false, true, null]],
+        218 => [[['_route' => 'api-show', '_controller' => 'App\\Controller\\ApiController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        253 => [[['_route' => 'post_like', '_controller' => 'App\\Controller\\BlogController::like'], ['slug'], null, null, false, false, null]],
+        293 => [[['_route' => 'single_post', '_controller' => 'App\\Controller\\BlogController::post'], ['slug'], null, null, false, true, null]],
+        321 => [[['_route' => 'blog_buscar', 'page' => 1, '_controller' => 'App\\Controller\\BlogController::buscar'], ['page'], null, null, false, true, null]],
+        344 => [
             [['_route' => 'blog', 'page' => 1, '_controller' => 'App\\Controller\\BlogController::index'], ['page'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

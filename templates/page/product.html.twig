@@ -25,7 +25,10 @@
 									<div class="desc">
 										<h3><a href="#">{{ product.name }}</a></h3>
 										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Far far away, behind the word mountains, far from the countries Vokalia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-										{{ product.price }}
+										<h2>Precio: {{ product.price }}</h2>
+										
+										<a class="btn btn-primary py-2 px-3" ><img class="img-responsive" style="width: 20px;" src="{{asset('images/index/gallery/1f6d2.png')}}" alt="product"></a>
+										<a class="btn btn-primary py-2 px-3 open-info-product" data-id="{{product.id}}"><img class="img-responsive" style="width: 20px;" src="{{asset('images/index/gallery/1f441.png')}}" alt="product"></a>
 									</div>
 								</div>
 								<div class="col-md-8 animate-box">
@@ -40,8 +43,9 @@
 									<div class="desc">
 										<h3><a href="#">{{ product.name }}</a></h3>
 										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Far far away, behind the word mountains, far from the countries Vokalia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-										{{ product.price }}
-									</div>
+										<h2>Precio: {{ product.price }}</h2>
+										<a class="btn btn-primary py-2 px-3" href=""><img class="img-responsive" style="width: 20px;" src="{{asset('images/index/gallery/1f6d2.png')}}" alt="product"></a>
+										<a class="btn btn-primary py-2 px-3 open-info-product" data-id="{{product.id}}"><img class="img-responsive" style="width: 20px;" src="{{asset('images/index/gallery/1f441.png')}}" alt="product"></a>									</div>
 								</div>
 								<div class="col-md-8 col-md-pull-4 animate-box">
 									<figure>
@@ -54,4 +58,5 @@
 				</div>
 			</div>
 		</div>
+		
 {% endblock %} 

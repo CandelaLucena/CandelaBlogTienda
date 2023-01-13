@@ -383,6 +383,13 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\AdminController"/>
       </call>
     </service>
+    <service id="App\Controller\ApiController" class="App\Controller\ApiController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\ApiController"/>
+      </call>
+    </service>
     <service id="App\Controller\BlogController" class="App\Controller\BlogController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -6482,6 +6489,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BlogController" class="App\Controller\BlogController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BlogController" class="App\Controller\BlogController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BlogController" class="App\Controller\BlogController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7031,7 +7041,7 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.ETBnONv" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.g6k1P1V" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::delete" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -7079,6 +7089,7 @@
         <argument key="App\Controller\Admin\TeamCrudController::persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\TeamCrudController::renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\TeamCrudController::updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ApiController::show" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController::buscar" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController::index" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController::like" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -7141,6 +7152,7 @@
         <argument key="App\Controller\Admin\TeamCrudController:persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\TeamCrudController:renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\TeamCrudController:updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ApiController:show" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController:buscar" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController:index" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\BlogController:like" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -7791,6 +7803,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ApiController"/>
+      <argument>App\Controller\ApiController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
     <service id=".service_locator.jIxfAsi.App\Controller\BlogController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\BlogController"/>
       <argument>App\Controller\BlogController</argument>
@@ -8085,12 +8103,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ETBnONv"/>
+      <argument type="service" id=".service_locator.g6k1P1V"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ETBnONv"/>
+      <argument type="service" id=".service_locator.g6k1P1V"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9071,7 +9089,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ETBnONv"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.g6k1P1V"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9097,7 +9115,7 @@
     <service id=".service_locator.hNls88j" alias=".service_locator.ENGuM7_"/>
     <service id=".service_locator.6rNHno." alias=".service_locator.riFbGaB"/>
     <service id=".service_locator.x__eXbe" alias=".service_locator.iQAD6w2"/>
-    <service id=".service_locator.UEpq5tR" alias=".service_locator.ETBnONv"/>
+    <service id=".service_locator.LtWxdvT" alias=".service_locator.g6k1P1V"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.uSxA2J3" alias=".service_locator.UkT_aSH"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>

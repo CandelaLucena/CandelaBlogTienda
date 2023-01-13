@@ -20,6 +20,7 @@ return [
     'admin-product' => [[], ['_controller' => 'App\\Controller\\Admin\\DashboardController::product'], [], [['text', '/admin/product']], [], [], []],
     'app_images' => [[], ['_controller' => 'App\\Controller\\AdminController::images'], [], [['text', '/admin/images']], [], [], []],
     'app_images_borrar' => [['id'], ['_controller' => 'App\\Controller\\AdminController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/images']], [], [], []],
+    'api-show' => [['id'], ['_controller' => 'App\\Controller\\ApiController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/show']], [], [], []],
     'post_like' => [['slug'], ['_controller' => 'App\\Controller\\BlogController::like'], [], [['text', '/like'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/single_post']], [], [], []],
     'single_post' => [['slug'], ['_controller' => 'App\\Controller\\BlogController::post'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/blog/single_post']], [], [], []],
     'new_post' => [[], ['_controller' => 'App\\Controller\\BlogController::newPost'], [], [['text', '/blog/new']], [], [], []],
