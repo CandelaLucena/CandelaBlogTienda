@@ -56,6 +56,7 @@ return [
                     .')'
                     .'|(?:/([^/]++))?(*:344)'
                 .')'
+                .'|/cart/add/(\\d+)(*:368)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -71,8 +72,9 @@ return [
         253 => [[['_route' => 'post_like', '_controller' => 'App\\Controller\\BlogController::like'], ['slug'], null, null, false, false, null]],
         293 => [[['_route' => 'single_post', '_controller' => 'App\\Controller\\BlogController::post'], ['slug'], null, null, false, true, null]],
         321 => [[['_route' => 'blog_buscar', 'page' => 1, '_controller' => 'App\\Controller\\BlogController::buscar'], ['page'], null, null, false, true, null]],
-        344 => [
-            [['_route' => 'blog', 'page' => 1, '_controller' => 'App\\Controller\\BlogController::index'], ['page'], null, null, false, true, null],
+        344 => [[['_route' => 'blog', 'page' => 1, '_controller' => 'App\\Controller\\BlogController::index'], ['page'], null, null, false, true, null]],
+        368 => [
+            [['_route' => 'cart_add', '_controller' => 'App\\Controller\\CartController::cart_add'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

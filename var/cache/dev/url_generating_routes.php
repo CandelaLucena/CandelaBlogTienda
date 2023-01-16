@@ -26,6 +26,7 @@ return [
     'new_post' => [[], ['_controller' => 'App\\Controller\\BlogController::newPost'], [], [['text', '/blog/new']], [], [], []],
     'blog_buscar' => [['page'], ['page' => 1, '_controller' => 'App\\Controller\\BlogController::buscar'], [], [['variable', '/', '[^/]++', 'page', true], ['text', '/blog/buscar']], [], [], []],
     'blog' => [['page'], ['page' => 1, '_controller' => 'App\\Controller\\BlogController::index'], [], [['variable', '/', '[^/]++', 'page', true], ['text', '/blog']], [], [], []],
+    'cart_add' => [['id'], ['_controller' => 'App\\Controller\\CartController::cart_add'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/cart/add']], [], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\PageController::index'], [], [['text', '/']], [], [], []],
     'about' => [[], ['_controller' => 'App\\Controller\\PageController::about'], [], [['text', '/about']], [], [], []],
     'contact' => [[], ['_controller' => 'App\\Controller\\PageController::contact'], [], [['text', '/contact']], [], [], []],
