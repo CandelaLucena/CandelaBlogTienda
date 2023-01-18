@@ -443,6 +443,7 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Pagination\Paginator" class="App\Pagination\Paginator" autowire="true" autoconfigure="true"/>
+    <service id="App\Repository\CartRepository" class="App\Repository\CartRepository" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -477,6 +478,7 @@
     <service id="App\Service\CartService" class="App\Service\CartService" autowire="true" autoconfigure="true">
       <argument type="service" id="request_stack"/>
     </service>
+    <service id="App\Service\ProductService" class="App\Service\ProductService" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
       <tag name="kernel.event_subscriber"/>
