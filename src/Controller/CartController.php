@@ -98,7 +98,22 @@ class CartController extends AbstractController
         foreach($products as $product){
             $totalCart += $this->cart->getCart()[$product->getId()] * $product->getPrice();
         }
-        $data = ['total'=> $totalCart, 'totalItems' => $this->cart->totalItems()];
-        return new JsonResponse($data, Response::HTTP_OK);
+        $products = $this->repository->getFromCart($this->cart);
+        
+        $items = [];
+        $totalCart = 0;
+        foreach($products as $product){
+            $item = [
+                "id"=> $product->getId(),
+                "name" => $product->getName(),
+                "price" => $product->getPrice(),
+                "photo" => $product->getPhoto(),
+                "quantity" => $this->cart->getCart()[$product->getId()]
+            ];
+            $totalCart += $item["quantity"] * $item["price"];
+            $items[] = $item;
+        }
+    
+        return $this->render('cart/index.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
     }
 }
